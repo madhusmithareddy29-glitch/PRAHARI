@@ -20,9 +20,9 @@
   animation: intro-screen-in 900ms ease both;
 }
 .welcome-experience::before, .welcome-experience::after { position: absolute; z-index: -2; inset: 0; pointer-events: none; content: ''; }
-.welcome-experience::before { opacity: .15; background-image: linear-gradient(rgba(97, 141, 187, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(97, 141, 187, .12) 1px, transparent 1px); background-size: 58px 58px; mask-image: radial-gradient(ellipse at 68% 48%, #000 0, transparent 66%); }
+.welcome-experience::before { opacity: .15; background-image: linear-gradient(rgba(97, 141, 187, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(97, 141, 187, .12) 1px, transparent 1px); background-size: 58px 58px; -webkit-mask-image: radial-gradient(ellipse at 68% 48%, #000 0, transparent 66%); mask-image: radial-gradient(ellipse at 68% 48%, #000 0, transparent 66%); }
 .welcome-experience::after { z-index: 4; opacity: .14; background: linear-gradient(transparent 50%, rgba(91, 152, 207, .035) 50%); background-size: 100% 4px; mix-blend-mode: screen; }
-.welcome-stars { position: absolute; z-index: -1; inset: 0; opacity: .56; background-image: radial-gradient(circle, rgba(190, 225, 255, .9) 0 1px, transparent 1.6px), radial-gradient(circle, rgba(81, 164, 255, .8) 0 1px, transparent 1.6px); background-size: 137px 131px, 211px 197px; background-position: 8% 21%, 76% 34%; mask-image: radial-gradient(ellipse at 68% 48%, #000, transparent 68%); animation: stars-drift 55s linear infinite; }
+.welcome-stars { position: absolute; z-index: -1; inset: 0; opacity: .56; background-image: radial-gradient(circle, rgba(190, 225, 255, .9) 0 1px, transparent 1.6px), radial-gradient(circle, rgba(81, 164, 255, .8) 0 1px, transparent 1.6px); background-size: 137px 131px, 211px 197px; background-position: 8% 21%, 76% 34%; -webkit-mask-image: radial-gradient(ellipse at 68% 48%, #000, transparent 68%); mask-image: radial-gradient(ellipse at 68% 48%, #000, transparent 68%); animation: stars-drift 55s linear infinite; }
 .welcome-ambient { position: absolute; z-index: -1; width: 420px; height: 420px; border-radius: 50%; filter: blur(90px); opacity: .1; pointer-events: none; }
 .welcome-ambient--one { top: 19%; right: 8%; background: #258bff; animation: ambient-breathe 9s ease-in-out infinite alternate; }
 .welcome-ambient--two { bottom: -28%; left: 7%; background: #36c9cf; animation: ambient-breathe 12s ease-in-out 1s infinite alternate-reverse; }
@@ -43,7 +43,7 @@
 .intro-eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 20px; color: #8fc8dc; font-size: 8px; font-weight: 700; letter-spacing: 2px; }
 .intro-eyebrow span { width: 18px; height: 1px; background: #65cce8; box-shadow: 0 0 9px rgba(101, 204, 232, .65); }
 .intro-copy-block h1 { margin: 0; color: #f2f6ff; font: 600 clamp(38px, 5vw, 68px)/1.11 Inter, 'Segoe UI', sans-serif; letter-spacing: -2.7px; }
-.intro-copy-block h1 span { color: transparent; background: linear-gradient(94deg, #a9ecf3 0%, #8cbbf3 64%, #aab8ff 100%); background-clip: text; -webkit-background-clip: text; }
+.intro-copy-block h1 span { color: transparent; background: linear-gradient(94deg, #a9ecf3 0%, #8cbbf3 64%, #aab8ff 100%); -webkit-background-clip: text; background-clip: text; }
 .intro-lede { max-width: 470px; margin: 20px 0 25px; color: #8b9cb1; font-size: clamp(11px, 1.05vw, 13px); line-height: 1.85; }
 .intro-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 .intro-primary { display: inline-flex; min-height: 45px; align-items: center; gap: 22px; padding: 0 16px; border: 1px solid rgba(170, 234, 255, .5); border-radius: 7px; color: #071321; background: linear-gradient(110deg, #a7ecf0, #86bdf1 72%, #a2b2ff); box-shadow: 0 8px 28px rgba(52, 143, 208, .18), inset 0 1px rgba(255,255,255,.55); font-size: 10px; font-weight: 700; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, filter .2s ease; }
@@ -188,7 +188,7 @@
 }
 
 .signal-core-visual { position: relative; display: grid; width: min(100%, 360px); height: 100%; place-items: center; isolation: isolate; }
-.signal-grid { position: absolute; inset: 5% 4%; opacity: .26; background-image: linear-gradient(rgba(100, 175, 220, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(100, 175, 220, .12) 1px, transparent 1px); background-size: 22px 22px; mask-image: radial-gradient(ellipse, #000, transparent 68%); }
+.signal-grid { position: absolute; inset: 5% 4%; opacity: .26; background-image: linear-gradient(rgba(100, 175, 220, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(100, 175, 220, .12) 1px, transparent 1px); background-size: 22px 22px; -webkit-mask-image: radial-gradient(ellipse, #000, transparent 68%); mask-image: radial-gradient(ellipse, #000, transparent 68%); }
 .signal-core-halo { position: absolute; z-index: -1; width: 52%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(67, 167, 237, .3), rgba(54, 136, 227, .12) 39%, transparent 72%); filter: blur(17px); animation: aura-breathe 4.5s ease-in-out infinite alternate; }
 .signal-radar { position: absolute; width: 56%; aspect-ratio: 1; overflow: hidden; border: 1px solid rgba(95, 188, 255, .14); border-radius: 50%; background: repeating-radial-gradient(circle, transparent 0 25px, rgba(94, 183, 240, .1) 26px, transparent 27px); }
 .signal-radar::before { position: absolute; inset: -1px; border-radius: inherit; background: conic-gradient(from 0deg, transparent 0 76%, rgba(70, 197, 255, .04) 82%, rgba(97, 224, 255, .48) 99%, transparent); content: ''; animation: radar-sweep 7s linear infinite; }
@@ -240,8 +240,8 @@
   display: inline-block;
   opacity: 0;
   background: linear-gradient(180deg, #ffffff 8%, #c8f5ff 48%, #79bfff 100%);
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 0 rgba(97, 214, 255, 0));
   transform: translate3d(0, 22px, 0) rotateX(-55deg) scale(.88);

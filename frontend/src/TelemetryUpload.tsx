@@ -14,7 +14,30 @@ type AnalysisResult = {
   unique_destinations: number | null;
   total_bytes: number | null;
   protocol_distribution: Record<string, number>;
+  risk_assessment: RiskAssessment;
   message: string;
+};
+
+type RiskIndicator = {
+  key: string;
+  title: string;
+  severity: "low" | "medium" | "high";
+  score_contribution: number;
+  affected_records: number;
+  evidence: string;
+  affected_hosts: string[];
+};
+
+type RiskAssessment = {
+  method: "transparent_fixed_rules";
+  is_prediction: false;
+  score: number | null;
+  level: "insufficient_data" | "low" | "guarded" | "elevated" | "high";
+  signal_coverage_percent: number;
+  available_signal_families: string[];
+  indicators: RiskIndicator[];
+  top_hosts: { host: string; indicator_points: number }[];
+  disclaimer: string;
 };
 
 type SummaryStats = {
@@ -25,7 +48,7 @@ type SummaryStats = {
   topSource: string;
 };
 
-export type { AnalysisResult, UploadResult };
+export type { AnalysisResult, RiskAssessment, UploadResult };
 
 type TelemetryUploadProps = {
   onUpload?: (result: UploadResult) => void;
@@ -38,7 +61,7 @@ function getNumericValue(value: unknown): number {
   }
 
   if (typeof value === "string") {
-    const cleaned = value.replace(/[^0-9.\-]/g, "");
+    const cleaned = value.replace(/[^0-9.-]/g, "");
     const parsed = Number(cleaned);
     return Number.isFinite(parsed) ? parsed : 0;
   }
